@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfcyqnrddm014"]
+
+[ext_resource type="PackedScene" uid="uid://c6lqt1yda6jgi" path="res://assets/trains/Cargo Train Front/CargoTrain_Front.fbx" id="1_sl4rb"]
+[ext_resource type="Script" uid="uid://btadogc0wfflk" path="res://scripts/train_hit_detection.gd" id="1_vvju0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvju0"]
+size = Vector3(0.5, 2.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fd4ps"]
+size = Vector3(9.73773, 2.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl4rb"]
+size = Vector3(9.73773, 2.5, 0.5)
+
+[node name="Train_Front" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_vvju0")
+
+[node name="CargoTrain_Front" parent="." instance=ExtResource("1_sl4rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38835, 0.034318, -0.000898361)
+
+[node name="FrontCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50403, 1.51564, -0.00243855)
+shape = SubResource("BoxShape3D_vvju0")
+
+[node name="RightCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.603, 1.516, -0.8)
+shape = SubResource("BoxShape3D_fd4ps")
+
+[node name="LeftCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.603, 1.516, 0.8)
+shape = SubResource("BoxShape3D_sl4rb")
+
+[connection signal="child_entered_tree" from="FrontCollision" to="." method="_on_front_collision_child_entered_tree"]

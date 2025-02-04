@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://mcr1iira2lh1"]
+
+[ext_resource type="MeshLibrary" uid="uid://ly2fucwvsw5n" path="res://scenes/libraries/environment_mesh_library.tres" id="1_fwjtt"]
+
+[node name="Map" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_fwjtt")
+data = {
+"cells": PackedInt32Array(65532, 65535, 1441799, 65533, 65533, 1441809, 65533, 65534, 1441809, 65534, 65534, 1441809, 65535, 65534, 1441809, 65532, 65534, 1441798, 65532, 65533, 1441797, 65532, 65532, 1441793, 65532, 65531, 1441792, 65532, 0, 1441798)
+}

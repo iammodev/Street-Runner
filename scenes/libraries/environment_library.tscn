@@ -1,0 +1,77 @@
+[gd_scene load_steps=25 format=3 uid="uid://daooxoh6alou4"]
+
+[ext_resource type="PackedScene" uid="uid://c1oec3d1f36yf" path="res://assets/environment/Building/building_A.fbx" id="1_uxs5x"]
+[ext_resource type="PackedScene" uid="uid://fa08hecdxhcw" path="res://assets/environment/Building/building_C.fbx" id="2_26ptw"]
+[ext_resource type="PackedScene" uid="uid://bunj8xobh2k0n" path="res://assets/environment/Building/building_D.fbx" id="3_teefg"]
+[ext_resource type="PackedScene" uid="uid://d04opqkfugrbg" path="res://assets/environment/Building/building_E.fbx" id="4_gdja7"]
+[ext_resource type="PackedScene" uid="uid://chbd5g4xykw13" path="res://assets/environment/Building/building_F.fbx" id="5_0y6am"]
+[ext_resource type="PackedScene" uid="uid://jfr77fi3iyv6" path="res://assets/environment/Building B/building_B.fbx" id="6_3nf0u"]
+[ext_resource type="PackedScene" uid="uid://cwi6j4hrwq1qq" path="res://assets/environment/Building-bbH2Bg73qM/building_G.fbx" id="7_s7j05"]
+[ext_resource type="PackedScene" uid="uid://dw3w3mdyhmkr8" path="res://assets/environment/Building-otRsYa6pan/building_H.fbx" id="8_k7ohr"]
+[ext_resource type="PackedScene" uid="uid://mstry7ea4qsd" path="res://assets/environment/Bench/bench.fbx" id="9_ec5ih"]
+[ext_resource type="PackedScene" uid="uid://bh7vxo41nuv15" path="res://assets/environment/Box/box_A.fbx" id="10_xe8mi"]
+[ext_resource type="PackedScene" uid="uid://mslsl3xdbclk" path="res://assets/environment/Box B/box_B.fbx" id="11_7h1xe"]
+[ext_resource type="PackedScene" uid="uid://cd8abx8gauweg" path="res://assets/environment/Bush/bush.fbx" id="12_o0g6e"]
+[ext_resource type="PackedScene" uid="uid://x3qr0qrj06eo" path="res://assets/environment/Car Hatchback/Car_Hatchback.fbx" id="13_0t2vo"]
+[ext_resource type="PackedScene" uid="uid://c5xf47yiuv2h5" path="res://assets/environment/Dumpster/dumpster.fbx" id="14_tlavx"]
+[ext_resource type="PackedScene" uid="uid://bbw26bepbo04b" path="res://assets/environment/Fire Hydrant/firehydrant.fbx" id="15_o735v"]
+[ext_resource type="PackedScene" uid="uid://buiy51xuljcpq" path="res://assets/environment/Police Car/Police_car.fbx" id="16_xc10s"]
+[ext_resource type="PackedScene" uid="uid://bkf3hc2nk5gf8" path="res://assets/environment/Rocks/trash_B.fbx" id="17_nadx4"]
+[ext_resource type="PackedScene" uid="uid://bhy8hqbilydt7" path="res://assets/environment/Stationwagon/Stationwagon.fbx" id="18_illw2"]
+[ext_resource type="PackedScene" uid="uid://bs5eypppfkpnb" path="res://assets/environment/Streetlight/streetlight.fbx" id="19_iaq6i"]
+[ext_resource type="PackedScene" uid="uid://bkxcrc61ujsob" path="res://assets/environment/Taxi/Taxi.fbx" id="20_u50om"]
+[ext_resource type="PackedScene" uid="uid://bvkdsm5n8te6t" path="res://assets/environment/Traffic light/trafficlight_A.fbx" id="21_wf708"]
+[ext_resource type="PackedScene" uid="uid://bwi5f7sqkl2xw" path="res://assets/environment/Traffic light/trafficlight_C.fbx" id="22_i2jd7"]
+[ext_resource type="PackedScene" uid="uid://bfd3w7j8v2drv" path="res://assets/environment/Trafficlight B/trafficlight_B.fbx" id="23_qx6n0"]
+[ext_resource type="PackedScene" uid="uid://cob410vn8smfb" path="res://assets/environment/Watertower/watertower.fbx" id="24_dmgsu"]
+
+[node name="Environment_Library" type="Node3D"]
+
+[node name="building_A" parent="." instance=ExtResource("1_uxs5x")]
+
+[node name="building_C" parent="." instance=ExtResource("2_26ptw")]
+
+[node name="building_D" parent="." instance=ExtResource("3_teefg")]
+
+[node name="building_E" parent="." instance=ExtResource("4_gdja7")]
+
+[node name="building_F" parent="." instance=ExtResource("5_0y6am")]
+
+[node name="building_B" parent="." instance=ExtResource("6_3nf0u")]
+
+[node name="building_G" parent="." instance=ExtResource("7_s7j05")]
+
+[node name="building_H" parent="." instance=ExtResource("8_k7ohr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13363, 0, 0)
+
+[node name="bench" parent="." instance=ExtResource("9_ec5ih")]
+
+[node name="box_A" parent="." instance=ExtResource("10_xe8mi")]
+
+[node name="box_B" parent="." instance=ExtResource("11_7h1xe")]
+
+[node name="bush" parent="." instance=ExtResource("12_o0g6e")]
+
+[node name="Car_Hatchback" parent="." instance=ExtResource("13_0t2vo")]
+
+[node name="dumpster" parent="." instance=ExtResource("14_tlavx")]
+
+[node name="firehydrant" parent="." instance=ExtResource("15_o735v")]
+
+[node name="Police_car" parent="." instance=ExtResource("16_xc10s")]
+
+[node name="trash_B" parent="." instance=ExtResource("17_nadx4")]
+
+[node name="Stationwagon" parent="." instance=ExtResource("18_illw2")]
+
+[node name="streetlight" parent="." instance=ExtResource("19_iaq6i")]
+
+[node name="Taxi" parent="." instance=ExtResource("20_u50om")]
+
+[node name="trafficlight_A" parent="." instance=ExtResource("21_wf708")]
+
+[node name="trafficlight_C" parent="." instance=ExtResource("22_i2jd7")]
+
+[node name="trafficlight_B" parent="." instance=ExtResource("23_qx6n0")]
+
+[node name="watertower" parent="." instance=ExtResource("24_dmgsu")]

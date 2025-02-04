@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bou3ewvxmwcfh"]
+
+[ext_resource type="Script" uid="uid://nhgywfo1j7ob" path="res://scripts/modules/level_loader.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bdcjqtxr6udf6" path="res://scenes/modules/base_module.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://deat0tt5ku8vi" path="res://scripts/modules/module_loader.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cbtk2txh3ob8i" path="res://scenes/characters/player02.tscn" id="5_tbgi4"]
+
+[sub_resource type="Environment" id="Environment_jyhfs"]
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("1_0wfyh")
+base_module = ExtResource("2_sugp2")
+obstacle_probability = 0.9
+
+[node name="ModuleLoader" type="Node3D" parent="Level"]
+script = ExtResource("3_jyhfs")
+
+[node name="CharacterBody3D" parent="Level" instance=ExtResource("5_tbgi4")]
+SWIPE_SPEED = 15.0
+JUMP_FORCE = 9.0
+FAST_FALL_GRAVITY_MULTIPLIER = 20.0
+
+[node name="Camera3D" type="Camera3D" parent="Level/CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -4, 3, -3.93403e-07)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jyhfs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

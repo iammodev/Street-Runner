@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbtk2txh3ob8i"]
+
+[ext_resource type="PackedScene" uid="uid://bmrn8cq25bju0" path="res://scenes/characters/characters_shaun.tscn" id="1_844mb"]
+[ext_resource type="Script" uid="uid://dkqjyejyvkgmq" path="res://scripts/characters/player02.gd" id="1_srqdo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_srqdo"]
+height = 1.5
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_srqdo")
+JUMP_FORCE = 8.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189447, 0)
+shape = SubResource("CapsuleShape3D_srqdo")
+
+[node name="Characters_Shaun" parent="." instance=ExtResource("1_844mb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.5, 0)

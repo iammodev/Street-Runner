@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b36bs8aymws4e"]
+
+[ext_resource type="PackedScene" uid="uid://c6lqt1yda6jgi" path="res://assets/trains/Cargo Train Front/CargoTrain_Front.fbx" id="1_6dpyw"]
+[ext_resource type="Script" uid="uid://btadogc0wfflk" path="res://scripts/train_hit_detection.gd" id="1_n8dwl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7wtl"]
+size = Vector3(10.2, 2.7, 1.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8dwl"]
+size = Vector3(0.251294, 1.81, 1.88)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2h06"]
+size = Vector3(10.043, 2.3, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gtmar"]
+size = Vector3(10.255, 2.3, 0.1)
+
+[node name="Train_Front" type="StaticBody3D"]
+collision_mask = 2
+script = ExtResource("1_n8dwl")
+
+[node name="TrainCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36156, 1.37852, 0.00830856)
+shape = SubResource("BoxShape3D_j7wtl")
+
+[node name="AreaFront" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="FrontCollision" type="CollisionShape3D" parent="AreaFront"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67043, 1.13856, -0.00243855)
+shape = SubResource("BoxShape3D_n8dwl")
+
+[node name="AreaRight" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="RightCollision" type="CollisionShape3D" parent="AreaRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49035, 1.516, -0.990466)
+shape = SubResource("BoxShape3D_a2h06")
+
+[node name="AreaLeft" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="LeftCollision" type="CollisionShape3D" parent="AreaLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.603, 1.516, 1.00073)
+shape = SubResource("BoxShape3D_gtmar")
+
+[node name="CargoTrain_Front" parent="." instance=ExtResource("1_6dpyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38835, 0.034318, -0.000898361)
+
+[connection signal="body_entered" from="AreaFront" to="." method="_on_area_front_body_entered"]
+[connection signal="area_entered" from="AreaRight" to="." method="_on_area_right_area_entered"]
+[connection signal="body_entered" from="AreaRight" to="." method="_on_area_right_body_entered"]
+[connection signal="area_entered" from="AreaLeft" to="." method="_on_area_left_area_entered"]
+[connection signal="body_entered" from="AreaLeft" to="." method="_on_area_left_body_entered"]
