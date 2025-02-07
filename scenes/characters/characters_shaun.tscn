@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmrn8cq25bju0"]
+[gd_scene load_steps=6 format=3 uid="uid://bmrn8cq25bju0"]
 
 [ext_resource type="PackedScene" uid="uid://72vxcd2st2gb" path="res://assets/characters/Characters_Shaun.fbx" id="1_68q1y"]
+[ext_resource type="Texture2D" uid="uid://ndn70qb4fc2o" path="res://assets/characters/Characters_Shaun_0.png" id="2_u0600"]
+[ext_resource type="Shader" uid="uid://casn3pvohowcx" path="res://scripts/shaders/outline.gdshader" id="3_3rkx8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6lkk"]
+render_priority = 0
+shader = ExtResource("3_3rkx8")
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 0.1
+shader_parameter/fade_start = 10.0
+shader_parameter/fade_end = 30.0
+shader_parameter/outline_size = 25.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3ahb"]
+next_pass = SubResource("ShaderMaterial_g6lkk")
+albedo_texture = ExtResource("2_u0600")
 
 [node name="Characters_Shaun" instance=ExtResource("1_68q1y")]
 
@@ -123,8 +138,11 @@ bones/57/position = Vector3(-0.00124545, 0.00624626, 0.0116907)
 bones/57/rotation = Quaternion(0, -5.96047e-07, 0, 1)
 
 [node name="WoodenBat_Saw" parent="CharacterArmature/Skeleton3D" index="0"]
-transform = Transform3D(-0.187643, 0.531273, 0.826159, -0.801641, 0.403204, -0.44136, -0.567593, -0.745101, 0.350232, 0.00249631, -0.00314201, 0.00546262)
+transform = Transform3D(-0.187644, 0.531273, 0.826159, -0.801641, 0.403203, -0.44136, -0.567592, -0.745102, 0.350232, 0.00249631, -0.00314202, 0.00546263)
 bone_idx = 18
+
+[node name="Shaun" parent="CharacterArmature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m3ahb")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "CharacterArmature|Run"

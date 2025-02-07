@@ -10,6 +10,10 @@ const LANE_POSITIONS: Array = [Vector3(0, 1, -3), Vector3(0, 1, 0), Vector3(0, 1
 @export var GRAVITY: float = 9.8
 @export var FAST_FALL_GRAVITY_MULTIPLIER: float = 2.5  # Multiplier for faster falling
 
+# Collectables
+var collectable: int = 0
+signal collectable_collected
+
 var _current_lane: int = 1
 var _target_z: float = 0.0
 var _original_z: float = 0.0  # Store the original lane position when moving
@@ -57,8 +61,6 @@ func _input(event: InputEvent) -> void:
 		_start_swipe(event)
 	elif event.is_action_released("swipe"):
 		_end_swipe(event)
-	elif event.is_action_pressed("test"):
-		interrupt_movement()
 
 	# Handle key press input
 	if event.is_action_pressed("move_left"):
@@ -127,3 +129,9 @@ func interrupt_movement() -> void:
 		_is_interrupted = true
 		_target_z = _original_z  # Set the target back to the original lane
 		_current_lane = LANE_POSITIONS.find(Vector3(0, 1, _original_z))  # Update current lane
+
+func collect_collectable():
+	collectable += 1
+	print(collectable, " collected")
+	
+	collectable_collected.emit(collectable)

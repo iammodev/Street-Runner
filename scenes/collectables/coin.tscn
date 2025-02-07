@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://di2qqag604mjd"]
+
+[ext_resource type="Script" uid="uid://d31rakdlctgcu" path="res://scripts/collectables/coin.gd" id="1_edisc"]
+[ext_resource type="PackedScene" uid="uid://ux1i71clyhca" path="res://scenes/collectables/coin_2.tscn" id="2_xvn0w"]
+[ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://assets/sprites/particle.png" id="3_xvn0w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q6t3q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6wh2"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_xvn0w")
+billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_xvn0w"]
+
+[sub_resource type="Curve" id="Curve_edisc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_q6t3q"]
+offsets = PackedFloat32Array(0, 0)
+colors = PackedColorArray(0.996078, 0.909804, 0.352941, 1, 1, 1, 1, 1)
+
+[node name="Coin" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_edisc")
+
+[node name="coin2" parent="." instance=ExtResource("2_xvn0w")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_q6t3q")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_s6wh2")
+lifetime = 0.3
+mesh = SubResource("QuadMesh_xvn0w")
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+damping_min = 0.5
+damping_max = 0.5
+scale_amount_min = 0.15
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_edisc")
+color_ramp = SubResource("Gradient_q6t3q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

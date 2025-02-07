@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ux1i71clyhca"]
+
+[ext_resource type="PackedScene" uid="uid://eviwmdwq7u4u" path="res://assets/collectables/coin.glb" id="1_tnwoo"]
+[ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://assets/collectables/Textures/colormap.png" id="2_0t4ss"]
+[ext_resource type="Shader" uid="uid://casn3pvohowcx" path="res://scripts/shaders/outline.gdshader" id="3_x8x7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shf6p"]
+render_priority = 0
+shader = ExtResource("3_x8x7h")
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 0.1
+shader_parameter/fade_start = 10.0
+shader_parameter/fade_end = 30.0
+shader_parameter/outline_size = 25.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl6fy"]
+next_pass = SubResource("ShaderMaterial_shf6p")
+albedo_texture = ExtResource("2_0t4ss")
+
+[node name="coin2" instance=ExtResource("1_tnwoo")]
+
+[node name="coin" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wl6fy")

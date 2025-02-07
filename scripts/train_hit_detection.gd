@@ -10,9 +10,13 @@ func _on_area_front_body_entered(_body: Node3D) -> void:
 	print("front")
 
 
-func _on_area_right_body_entered(_body: Node3D) -> void:
+func _on_area_right_body_entered(body: Node3D) -> void:
+	if body.has_method("interrupt_movement"):
+		body.interrupt_movement()
 	print("right")
 
 
-func _on_area_left_body_entered(_body: Node3D) -> void:
+func _on_area_left_body_entered(body: Node3D) -> void:
+	if body.has_method("interrupt_movement"):
+		body.interrupt_movement()
 	print("left")
