@@ -11,26 +11,26 @@ uniform float outline_size = 10.0;
 void vertex() {
 	// Convert vertex position to space
 	vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
-	
+
 	// Transform normal to space
 	vec3 clip_normal = mat3(PROJECTION_MATRIX * MODELVIEW_MATRIX) * NORMAL;
-	
+
 	// Calculate offset for outline expansion
 	vec2 offset = normalize(clip_normal.xy) * outline_width * clip_position.w / VIEWPORT_SIZE;
-	
+
 	// Apply offset to create outline
 	clip_position.xy += offset * outline_size;
-	
+
 	POSITION = clip_position;
 }
 
 void fragment() {
 	// Get Camera Distance
 	float camera_distance = length(VERTEX);
-	
+
 	// Calculate Fade factor based on camera_distance
 	float fade = clamp(1.0 - (camera_distance - fade_start) / (fade_end - fade_start), 0.0, 1.0);
-	
+
 	ALBEDO = outline_color.rgb;
 	// Multiply alpha by fade
 	ALPHA = outline_color.a * fade;

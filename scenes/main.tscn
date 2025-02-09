@@ -4,21 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bdcjqtxr6udf6" path="res://scenes/modules/base_module.tscn" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://deat0tt5ku8vi" path="res://scripts/modules/module_loader.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cbtk2txh3ob8i" path="res://scenes/characters/player02.tscn" id="5_tbgi4"]
-
-[sub_resource type="Environment" id="Environment_jyhfs"]
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-glow_enabled = true
-fog_enabled = true
+[ext_resource type="Environment" uid="uid://ccj3cicetkhp3" path="res://scenes/maps/world.tres" id="5_tefeu"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Level" type="Node3D" parent="."]
+[node name="Level" type="Node3D" parent="." node_paths=PackedStringArray("module_loader")]
 script = ExtResource("1_0wfyh")
 base_module = ExtResource("2_sugp2")
-obstacle_probability = 0.9
+module_loader = NodePath("ModuleLoader")
+max_modules = 8
+safe_lane_count = 3
 
 [node name="ModuleLoader" type="Node3D" parent="Level"]
 script = ExtResource("3_jyhfs")
@@ -32,7 +27,7 @@ FAST_FALL_GRAVITY_MULTIPLIER = 20.0
 transform = Transform3D(-4.37114e-08, 0.258819, -0.965926, 0, 0.965926, 0.258819, 1, 1.13133e-08, -4.2222e-08, -4, 3, -3.93403e-07)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jyhfs")
+environment = ExtResource("5_tefeu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

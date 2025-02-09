@@ -1,20 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdcjqtxr6udf6"]
+[gd_scene load_steps=12 format=3 uid="uid://bdcjqtxr6udf6"]
 
 [ext_resource type="PackedScene" uid="uid://di2qqag604mjd" path="res://scenes/collectables/coin.tscn" id="1_jggib"]
 [ext_resource type="Shader" uid="uid://cpm8k0kclsp2d" path="res://scripts/shaders/prototype.gdshader" id="1_qkxb0"]
+[ext_resource type="PackedScene" uid="uid://c1oec3d1f36yf" path="res://assets/environment/Building/building_A.fbx" id="3_xhm32"]
+[ext_resource type="PackedScene" uid="uid://de7pk8ecnwtby" path="res://scenes/environment/building/building_f.tscn" id="4_kwkiq"]
+[ext_resource type="PackedScene" uid="uid://bjox17v7co3dk" path="res://scenes/environment/streetlight.tscn" id="5_l7poa"]
+[ext_resource type="PackedScene" uid="uid://d05hfhs1jhccm" path="res://scenes/environment/building/building_d.tscn" id="6_lfagh"]
+[ext_resource type="PackedScene" uid="uid://dfvx5hrg62ja3" path="res://scenes/environment/building/building_c.tscn" id="7_o208c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i1lmn"]
 size = Vector3(15, 0.2, 15)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2xdma"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qkxb0"]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_2xdma")
 shader = ExtResource("1_qkxb0")
 shader_parameter/world_uv = false
 shader_parameter/object_uv = false
 shader_parameter/object_uv_scale = Vector2(1, 1)
 shader_parameter/preset_color = 4
 shader_parameter/base_color = Color(0, 0, 0, 1)
-shader_parameter/metalic = 1.0
+shader_parameter/metalic = 0.25
 shader_parameter/roughness = 0.75
 shader_parameter/grid_scale = 1.0
 shader_parameter/grid_width = 0.01
@@ -64,3 +72,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70874, 0.711429, 0.0561657
 
 [node name="Coin3" parent="." instance=ExtResource("1_jggib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70874, 0.711429, 3.05617)
+
+[node name="building_A" parent="." instance=ExtResource("3_xhm32")]
+transform = Transform3D(-5, 0, 7.54979e-07, 0, 5, 0, -7.54979e-07, 0, -5, 2.495, -0.1, 12.5)
+
+[node name="building_F" parent="." instance=ExtResource("4_kwkiq")]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -4.97316, 0, 10.0622)
+
+[node name="streetlight" parent="." instance=ExtResource("5_l7poa")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -1, 0, 8)
+
+[node name="streetlight2" parent="." instance=ExtResource("5_l7poa")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -1, 0, -8)
+
+[node name="building_D" parent="." instance=ExtResource("6_lfagh")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.4943, 0.100001, -10.4954)
+
+[node name="building_C" parent="." instance=ExtResource("7_o208c")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -3.01225, 0.1, -12.0093)
