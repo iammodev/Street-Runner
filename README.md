@@ -9,6 +9,9 @@ Street Runner is an open-source clone of the popular "Subway Surfers" game, deve
 - **Power-Ups**: Enhance gameplay with collectible power-ups that provide temporary abilities.
 - **Score System**: Track your progress and aim for high scores with an integrated scoring system.
 
+![image](https://github.com/user-attachments/assets/ef2f52a5-f6d6-4cd1-b124-820ea8ecd77c)
+
+
 ## Getting Started
 
 ### Prerequisites
